@@ -7,11 +7,22 @@
 
 import Foundation
 
-struct Reminder {
+struct Reminder: Identifiable {
+    var id: String = UUID().uuidString
     var title: String
     var dueDate: Date
     var notes: String? = nil // optional string property that has a default value of nil
     var isComplete: Bool = false
+}
+
+extension [Reminder] {
+    //  this function uses a reminder's identifier to retrieve and update individual items in the reminders array
+    func indexOfReminder(withID id:Reminder.ID) -> Self.Index {
+        guard let index = firstIndex(where: { $0.id == id}) else {
+            fatalError()
+        }
+        return index
+    }
 }
 
 //  a compilation directive flag that prevents the enclosed code from compiling when the app is built for release. This flag can be used for testing code in debug builds
