@@ -32,15 +32,20 @@ class ReminderListViewController: UICollectionViewController {
     }
     
     //  Override collectionView(_:shouldSelectItemAt:), and return false.
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    override func collectionView(
+        _ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath
+) -> Bool {
         let id = reminders[indexPath.item].id
-        pushDetailViewForReminder(withID: id)
+        pushDetailViewForReminder(withId: id)
         return false
     }
     
-    func pushDetailViewForReminder(withID id: Reminder.ID) {
+    func pushDetailViewForReminder(withId id: Reminder.ID) {
         let reminder = reminder(withID: id)
-        let viewController = ReminderViewController(reminder: reminder)
+        let viewController = ReminderViewController(reminder: reminder) { [weak self] reminder in
+            self?.updateReminder(reminder)
+            self?.updateSnapshot(reloading: [reminder.id])
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
     
