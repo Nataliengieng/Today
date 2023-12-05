@@ -18,10 +18,11 @@ extension ReminderListViewController {
     var reminderNotCompletedValue: String {
         NSLocalizedString("Not completed", comment: "Reminder not completed value")
     }
-    func updateSnapshot(reloading ids: [Reminder.ID] = []) {
+    func updateSnapshot(reloading idsThatChanged: [Reminder.ID] = []) {
+        let ids = idsThatChanged.filter { id in filteredReminders.contains(where: { $0.id == id })}
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        
+    
         /*
         for reminder in Reminder.sampleData {
             reminderTitles.append(reminder.title)
@@ -30,7 +31,7 @@ extension ReminderListViewController {
         =
         */
         //  map returns a new array containing only the reminder titles, which populate as items in the snapshot
-        snapshot.appendItems(reminders.map { $0.id })
+        snapshot.appendItems(filteredReminders.map { $0.id })
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
         }
@@ -40,7 +41,7 @@ extension ReminderListViewController {
     }
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, id: Reminder.ID) {
-        let reminder = reminder(withID: id)
+        let reminder = reminder(withId: id)
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = reminder.title
         contentConfiguration.secondaryText = reminder.dueDate.dayAndTimeText
@@ -61,20 +62,20 @@ extension ReminderListViewController {
     }
     
     //  this function appepts a reminder identifier and returns the corresponding reminder from the reminders array
-    func reminder(withID id: Reminder.ID) -> Reminder {
-        let index = reminders.indexOfReminder(withID: id)
+    func reminder(withId id: Reminder.ID) -> Reminder {
+        let index = reminders.indexOfReminder(withId: id)
         return reminders[index]
     }
     
     //  this function accepts a reminder and updates the corresponding array element with the contents of the reminder
     func updateReminder(_ reminder: Reminder) {
-        let index = reminders.indexOfReminder(withID: reminder.id)
+        let index = reminders.indexOfReminder(withId: reminder.id)
         reminders[index] = reminder
     }
     
     //  this method will be called when the button is pressed
-    func completReminder(withID id: Reminder.ID) {
-        var reminder = reminder(withID: id)
+    func completReminder(withId id: Reminder.ID) {
+        var reminder = reminder(withId: id)
         reminder.isComplete.toggle()
         updateReminder(reminder)
         updateSnapshot(reloading: [id])
@@ -85,7 +86,7 @@ extension ReminderListViewController {
     }
     
     func deleteReminder(withId id: Reminder.ID) {
-        let index = reminders.indexOfReminder(withID: id)
+        let index = reminders.indexOfReminder(withId: id)
         reminders.remove(at: index)
     }
     
@@ -93,7 +94,7 @@ extension ReminderListViewController {
     {
         let name = NSLocalizedString("Toogle completion", comment: "Reminder done button accessibility label")
         let action = UIAccessibilityCustomAction(name: name) { [weak self] action in
-            self?.completReminder(withID: reminder.id)
+            self?.completReminder(withId: reminder.id)
             return true
         }
         return action

@@ -17,7 +17,7 @@ struct Reminder: Equatable, Identifiable {
 
 extension [Reminder] {
     //  this function uses a reminder's identifier to retrieve and update individual items in the reminders array
-    func indexOfReminder(withID id:Reminder.ID) -> Self.Index {
+    func indexOfReminder(withId id:Reminder.ID) -> Self.Index {
         guard let index = firstIndex(where: { $0.id == id}) else {
             fatalError()
         }
