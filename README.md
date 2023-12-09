@@ -11,13 +11,13 @@ Becasue the tutorial is based on iOS 16, in section "Loading reminders", the fun
 Replacing below codes
 ```
 var isAvailable: Bool {
-    EKEventStore.authorizationStatus(for: .reminder) == **.authorized**
+    EKEventStore.authorizationStatus(for: .reminder) == .authorized
 }
 
 func requestAccess() async throws {
     ...
     case .notDetermined:
-        let accessGranted = try await **ekStore.requestAccess(to: .reminder)**
+        let accessGranted = try await ekStore.requestAccess(to: .reminder)
         guard accessGranted else {
             throw TodayError.accessDenied
         }
@@ -27,7 +27,7 @@ func requestAccess() async throws {
 To...
 ```
 var isAvailable: Bool {
-    EKEventStore.authorizationStatus(for: .reminder) == **.fullAccess**
+    EKEventStore.authorizationStatus(for: .reminder) == .fullAccess
 }
 
 func requestAccess() async throws {

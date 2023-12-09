@@ -31,6 +31,7 @@
 		4184245B2B23B1D100D2B396 /* EKEventStore+AsyncFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184245A2B23B1D100D2B396 /* EKEventStore+AsyncFetch.swift */; };
 		4184245D2B23B2FB00D2B396 /* Reminder+EKReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184245C2B23B2FB00D2B396 /* Reminder+EKReminder.swift */; };
 		4184245F2B23B3A400D2B396 /* ReminderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184245E2B23B3A400D2B396 /* ReminderStore.swift */; };
+		418424612B24C63800D2B396 /* EKReminder+Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418424602B24C63800D2B396 /* EKReminder+Reminder.swift */; };
 		41B395EF2B16420900530D8D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B395EE2B16420900530D8D /* Reminder.swift */; };
 		41B395F32B16499F00530D8D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 41B395F22B16499F00530D8D /* README.md */; };
 		41B395F52B1784D200530D8D /* Date+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B395F42B1784D200530D8D /* Date+Today.swift */; };
@@ -59,6 +60,7 @@
 		4184245A2B23B1D100D2B396 /* EKEventStore+AsyncFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+AsyncFetch.swift"; sourceTree = "<group>"; };
 		4184245C2B23B2FB00D2B396 /* Reminder+EKReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+EKReminder.swift"; sourceTree = "<group>"; };
 		4184245E2B23B3A400D2B396 /* ReminderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStore.swift; sourceTree = "<group>"; };
+		418424602B24C63800D2B396 /* EKReminder+Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKReminder+Reminder.swift"; sourceTree = "<group>"; };
 		41B395EE2B16420900530D8D /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		41B395F22B16499F00530D8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		41B395F42B1784D200530D8D /* Date+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Today.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				41B395F62B1787D300530D8D /* UIColor+Today.swift */,
 				41B395F42B1784D200530D8D /* Date+Today.swift */,
 				418424502B1F73BD00D2B396 /* ReminderListStyle.swift */,
+				418424602B24C63800D2B396 /* EKReminder+Reminder.swift */,
 				418424562B2220B500D2B396 /* CAGradientLayer+ListStyle.swift */,
 				418424582B23B0ED00D2B396 /* TodayError.swift */,
 				4184245E2B23B3A400D2B396 /* ReminderStore.swift */,
@@ -254,6 +257,7 @@
 				4184245D2B23B2FB00D2B396 /* Reminder+EKReminder.swift in Sources */,
 				4184242C2B1CEA9D00D2B396 /* UIView+PinnedSubview.swift in Sources */,
 				418424512B1F73BD00D2B396 /* ReminderListStyle.swift in Sources */,
+				418424612B24C63800D2B396 /* EKReminder+Reminder.swift in Sources */,
 				4184242D2B1CEA9D00D2B396 /* TextViewContentView.swift in Sources */,
 				41B395EF2B16420900530D8D /* Reminder.swift in Sources */,
 				418424572B2220B500D2B396 /* CAGradientLayer+ListStyle.swift in Sources */,
